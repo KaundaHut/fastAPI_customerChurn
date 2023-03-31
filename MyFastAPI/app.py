@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 import pickle
+import sklearn
 
 
 app = FastAPI(debug=True)
@@ -40,7 +41,7 @@ async def predict( tenure: int, age: int, address: int, income: float, employ: i
               custcat_total_service:int):
                        
             
-            model = pickle.load(open('C:/Users\kaund\OneDrive\Desktop\MyFastAPI/rf_clf_smoteenn.pkl','rb'))
+            model = pickle.load(open('C:/Users/kaund/OneDrive/Desktop/MyFastAPI/svm_clf.pkl','rb'))
             makeprediction = model.predict([[ tenure, age, address, income, employ, retire, reside,
             tollfree, equip, callcard, wireless, multline, voice, pager, internet, callid, callwait, forward, confer, ebill, loglong, 
             Ininc, total_monthly_bill, total_bill, region_zone_1, region_zone_2, region_zone_3, marital_married,  marital_unmarried,
